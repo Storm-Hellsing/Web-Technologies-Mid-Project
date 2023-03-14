@@ -10,9 +10,9 @@
                 <legend>Login</legend>
                 <table align="center">
                     <tr align="left">
-                        <th><label for="username">User Name: </label></th>
+                        <th><label for="email">Email: </label></th>
                         <th>
-                        <input type="text" name="username" id="username" value=""/>
+                        <input type="text" name="email" id="email" value=""/>
                         </th>
                     </tr>
 

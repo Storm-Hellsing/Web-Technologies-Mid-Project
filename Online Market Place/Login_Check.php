@@ -2,13 +2,14 @@
 
     session_start();
 
-    $userName = $_REQUEST['username'];
+    $userName = "";
+    $email = $_REQUEST['email'];
     $password = $_REQUEST['password'];
     $flag = false;
 
     if(isset($_REQUEST['signin']))
     {
-        if($userName == "" || $password == "")
+        if($email == "" || $password == "")
         {
             echo("Please fillup the above credentials.");
         }
@@ -20,15 +21,16 @@
                 $data = fgets($file);
                 $user = explode('|', $data);
 
-                if($userName == trim($user[0]) && $password == trim($user[2]))
+                if($email == trim($user[1]) && $password == trim($user[2]))
                 {
                     $flag = true;
+                    $userName = trim($user[0]);
                 }
             }
 
             if($flag)
             {
-                $_SESSION['username'] = $userName;
+                $_SESSION['userName'] = $userName;
                 setcookie('userLogin', 'true', time() + 900, '/');
                 header('location: HomePage.php');
             }

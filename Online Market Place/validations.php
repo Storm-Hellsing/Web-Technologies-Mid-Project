@@ -16,7 +16,11 @@
             {
                 $char = $password[$i];
 
-                if (is_numeric($char)) 
+                if ($char == '|') 
+                {
+                    return 0; // The password contains the '|' symbol, so return 0 immediately
+                } 
+                else if (is_numeric($char)) 
                 {
                     $hasNumber = true;
                 } 
@@ -40,5 +44,38 @@
                 return 1;
             }
         }
+    }
+
+    function validateURL($url)
+    {
+        if (filter_var($url, FILTER_VALIDATE_URL) === false) 
+        {
+            return 0;
+        } 
+        else 
+        {
+            return 1;
+        }
+    }
+
+    function validateEmail($email)
+    {
+        $file = fopen('UserList.txt', "r");
+
+        while (!feof($file))
+        {
+            $line = fgets($file);
+            
+            if (strpos($line, $email) !== false) 
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        fclose($file);
     }
 ?>

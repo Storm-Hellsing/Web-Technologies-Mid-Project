@@ -5,34 +5,41 @@
 
     if(isset($_REQUEST['signup']))
     {
+        $businessName = $_REQUEST['businessname'];
+        $businessLink = $_REQUEST['businesslink'];
         $userName = $_REQUEST['username'];
         $email = $_REQUEST['email'];
         $password = $_REQUEST['password'];
         $retypePassword = $_REQUEST['retypePassword'];
         $validPassword = validatePassword($password);
+        $validURL = validateURL($businessLink);
         $validEmail = validateEmail($email);
 
-        if($userName == "" || $email == "" || $password == "" || $retypePassword == "")
+        if($businessName == "" || $businessLink == "" || $userName == "" || $email == "" || $password == "" || $retypePassword == "")
         {
-            header('location: SignUpPage.php?msg=nullInputs');
+            header('location: MerchantRegistrationPage.php?msg=nullInputs');
+        }
+        elseif($validURL == 0)
+        {
+            header('location: MerchantRegistrationPage.php?msg=invalidURL');
         }
         elseif($validEmail == 1)
         {
-            header('location: SignUpPage.php?msg=invalidEmail');
+            header('location: MerchantRegistrationPage.php?msg=invalidEmail');
         }
         elseif($validPassword == 0)
         {
-            header('location: SignUpPage.php?msg=invalidPasswd');
+            header('location: MerchantRegistrationPage.php?msg=invalidPasswd');
         }
         elseif($retypePassword != $password)
         {
-            header('location: SignUpPage.php?msg=passwdMismatch');
+            header('location: MerchantRegistrationPage.php?msg=passwdMismatch');
         }
         else
         {
             $filename = 'UserList.txt';
             $file = fopen($filename, 'a') or die('Unable to open file!');
-            $text = "{$userName}|{$email}|{$password}\r\n";
+            $text = "{$userName}|{$email}|{$password}|{$businessName}|{$businessLink}\r\n";
             fwrite($file, $text) or die('Unable to write to file!');
             fclose($file);
             echo("<h1 align='center'><b>Registration Successful.</b></h1>");
@@ -41,7 +48,7 @@
     }
     else
     {
-        header('location: SignUpPage.php');
+        header('location: MerchantRegistrationPage.php');
     }
 
 ?>

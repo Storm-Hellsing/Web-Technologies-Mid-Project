@@ -4,7 +4,7 @@
 
     if(isset($_COOKIE['userLogin']))
     {
-        $userName = $_SESSION['username'];
+        $userName = $_SESSION['userName'];
 
 ?>
 
