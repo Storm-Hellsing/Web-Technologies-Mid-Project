@@ -31,7 +31,15 @@
             if($flag)
             {
                 $_SESSION['userName'] = $userName;
-                setcookie('userLogin', 'true', time() + 900, '/');
+                if($_REQUEST['keepmesignedin'] && $_REQUEST['keepmesignedin'] == 1)
+                {
+                    setcookie('userLogin', $userName, time() + (30 * 24 * 60 * 60), '/');
+                }
+                else
+                {
+                    setcookie('userLogin', $userName, time() + 900, '/');
+                }
+
                 header('location: HomePage.php');
             }
             else

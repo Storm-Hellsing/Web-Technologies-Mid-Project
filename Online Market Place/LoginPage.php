@@ -24,7 +24,8 @@
                     </tr>
                 </table>
                 <br/>
-                <input type="submit" name="signin" value="Sign In"> </br> </br>
+                <input type="submit" name="signin" value="Sign In"/> </br> </br>
+                <input type="checkbox" name="keepmesignedin" value=""/> Keep me signed in. </br> </br>
                 <a href='SignUpPage.php'>Don't have an account? Sign Up Now!</a>
                 <br/> <br/>
 
