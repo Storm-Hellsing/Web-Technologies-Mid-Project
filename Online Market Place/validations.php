@@ -60,11 +60,11 @@
 
     function validateEmail($email)
     {
-        $file = fopen('UserList.txt', "r");
+        $fileToCheckEmail = fopen('UserList.txt', "r");
 
-        while (!feof($file))
+        while (!feof($fileToCheckEmail))
         {
-            $line = fgets($file);
+            $line = fgets($fileToCheckEmail);
             
             if (strpos($line, $email) !== false) 
             {
@@ -76,6 +76,45 @@
             }
         }
 
-        fclose($file);
+        fclose($fileToCheckEmail);
     }
+
+    function validateBusinessName($businessName) 
+    {
+        $file = fopen('UserList.txt', 'r');
+      
+        // Loop through each line in the file
+        while (!feof($file)) 
+        {
+          $line = fgets($file);
+      
+          // Check if the line contains the username
+          if (strpos($line, $businessName) !== false) 
+          {
+            fclose($file);
+            return 1;
+          }
+        }
+      
+        fclose($file);
+        return 0;
+      }
+
+      function generateRandomCode() 
+      {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $code = '';
+        
+        // Loop 6 times to generate a 6-digit code
+        for ($i = 0; $i < 6; $i++) 
+        {
+          // Generate a random index to select a character from the $characters string
+          $index = rand(0, strlen($characters) - 1);
+          // Append the selected character to the $code string
+          $code .= $characters[$index];
+        }
+        
+        return $code;
+      }
+      
 ?>

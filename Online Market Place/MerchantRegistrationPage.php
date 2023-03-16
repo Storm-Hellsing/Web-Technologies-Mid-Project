@@ -12,49 +12,49 @@
                     <tr align="left">
                         <th><label for="businessname">Business Name:* </label></th>
                         <th>
-                        <input type="text" name="businessname" id="businessname" value="">
+                        <input type="text" name="businessname" id="businessname" value=""/>
                         </th>
                     </tr>
 
                     <tr align="left">
                         <th><label for="businesslink">Business Website/Link:* </label></th>
                         <th>
-                        <input type="text" name="businesslink" id="businesslink" value="">
+                        <input type="text" name="businesslink" id="businesslink" value=""/>
                         </th>
                     </tr>
 
                     <tr align="left">
                         <th><label for="username">Your name:* </label></th>
                         <th>
-                        <input type="text" name="username" id="username" value="">
+                        <input type="text" name="username" id="username" value=""/>
                         </th>
                     </tr>
 
                     <tr align="left">
                         <th><label for="email">Email:* </label></th>
                         <th>
-                        <input type="email" name="email" id="email" value="">
+                        <input type="email" name="email" id="email" value=""/>
                         </th>
                     </tr>
 
                     <tr align="left">
                         <th><label for="password">Password:* </label></th>
                         <th>
-                        <input type="password" name="password" id="password" value="">
+                        <input type="password" name="password" id="password" value=""/>
                         </th>
                     </tr>
 
                     <tr align="left">
                         <th><label for="retypePassword">Retype Password:* </label></th>
                         <th>
-                        <input type="password" name="retypePassword" id="retypePassword" value="">
+                        <input type="password" name="retypePassword" id="retypePassword" value=""/>
                         </th>
                     </tr>
                 </table>
                 <br/>
                 <button >Clear</button>
                 &nbsp 
-                <input type="submit" name="signup" value="Sign Up"></br> </br>
+                <input type="submit" name="signup" value="Sign Up"/></br> </br>
                 <a href='LoginPage.php'>Already have an account? Sign In!</a>
                 <br/> <br/>
 
@@ -67,6 +67,10 @@
                         if($_REQUEST['msg'] == 'nullInputs')
                         {
                             echo("Please fillup the required fields marked with '*'.");
+                        }
+                        elseif($_REQUEST['msg'] == 'invalidBusinessName')
+                        {
+                            echo("Business Name already exists.");
                         }
                         elseif($_REQUEST['msg'] == 'invalidURL')
                         {

@@ -11,13 +11,18 @@
         $email = $_REQUEST['email'];
         $password = $_REQUEST['password'];
         $retypePassword = $_REQUEST['retypePassword'];
-        $validPassword = validatePassword($password);
+        $validBusinessName = validateBusinessName($businessName);
         $validURL = validateURL($businessLink);
         $validEmail = validateEmail($email);
+        $validPassword = validatePassword($password);
 
         if($businessName == "" || $businessLink == "" || $userName == "" || $email == "" || $password == "" || $retypePassword == "")
         {
             header('location: MerchantRegistrationPage.php?msg=nullInputs');
+        }
+        elseif($validBusinessName == 1)
+        {
+            header('location: MerchantRegistrationPage.php?msg=invalidBusinessName');
         }
         elseif($validURL == 0)
         {
