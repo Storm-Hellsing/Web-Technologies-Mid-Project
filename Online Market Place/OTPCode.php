@@ -32,7 +32,11 @@
 
                     if(isset($_REQUEST['msg']))
                     {
-                        if($_REQUEST['msg'] == 'emailSent')
+                        if($_REQUEST['msg'] == 'nullOTP')
+                        {
+                            echo("Please enter the code.");
+                        }
+                        elseif($_REQUEST['msg'] == 'emailSent')
                         {
                             echo("An OTP code has been sent to your emai address. Please check and enter the code here.");
                         }

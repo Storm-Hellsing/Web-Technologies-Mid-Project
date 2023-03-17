@@ -65,7 +65,7 @@
                         {
                             echo("1. Passwords should be at least 8 characters long.<br/>
                             2. Should contain atleast one symbol.<br/>
-                            3. Should contain at least one number.
+                            3. Should contain at least one number.<br/>
                             4. Password can not contain '|' charcter.");
                         }
                         elseif($_REQUEST['msg'] == 'passwdMismatch')

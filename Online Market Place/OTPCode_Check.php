@@ -10,7 +10,11 @@
         {
             $generatedOTP = $_COOKIE['otpCode'];
 
-            if($otp != $generatedOTP)
+            if($otp == "")
+            {
+                header('Location: OTPCode.php?msg=nullOTP');
+            }
+            elseif($otp != $generatedOTP)
             {
                 header('Location: OTPCode.php?msg=invalidOTP');
             }
@@ -18,6 +22,7 @@
             {
                 session_destroy();
                 setcookie('otpCode', $otpCode, time() - 1, '/');
+                setcookie('resetpassword', $_SESSION['email'], time() + 300, '/');
                 header('Location: ResetPassword.php');
             }
         }

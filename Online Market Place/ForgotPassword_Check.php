@@ -30,6 +30,7 @@
             {
                 header('location: OTPCode.php?msg=emailSent');
                 $_SESSION['otp'] = $otpCode;
+                $_SESSION['email'] = $email;
                 setcookie('otpCode', $otpCode, time() + 300, '/');
             } 
             else
