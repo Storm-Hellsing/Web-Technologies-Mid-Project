@@ -5,7 +5,12 @@
     $userName = "";
     $email = $_REQUEST['email'];
     $password = $_REQUEST['password'];
-    $flag = false;
+    $accountTypeCustomer = "Customer";
+    $accountTypeMerchant = "Merchant";
+    $accountTypeAdmin = "Admin";
+    $flagCustomer = false;
+    $flagMerchant = false;
+    $flagAdmin = false;
 
     if(isset($_REQUEST['signin']))
     {
@@ -21,17 +26,27 @@
                 $data = fgets($file);
                 $user = explode('|', $data);
 
-                if($email == trim($user[1]) && $password == trim($user[2]))
+                if($email == trim($user[1]) && $password == trim($user[2]) && $accountTypeCustomer == trim($user[3]))
                 {
-                    $flag = true;
+                    $flagCustomer = true;
+                    $userName = trim($user[0]);
+                }
+                elseif($email == trim($user[1]) && $password == trim($user[2]) && $accountTypeMerchant == trim($user[3]))
+                {
+                    $flagMerchant = true;
+                    $userName = trim($user[0]);
+                }
+                elseif($email == trim($user[1]) && $password == trim($user[2]) && $accountTypeAdmin == trim($user[3]))
+                {
+                    $flagAdmin = true;
                     $userName = trim($user[0]);
                 }
             }
 
-            if($flag)
+            if($flagCustomer)
             {
                 $_SESSION['userName'] = $userName;
-                if($_REQUEST['keepmesignedin'] && $_REQUEST['keepmesignedin'] == 1)
+                if($_REQUEST['keepmesignedin'] && $_REQUEST['keepmesignedin'] == 'on')
                 {
                     setcookie('userLogin', $userName, time() + (30 * 24 * 60 * 60), '/');
                 }
@@ -40,7 +55,35 @@
                     setcookie('userLogin', $userName, time() + 900, '/');
                 }
 
-                header('location: HomePage.php');
+                header('location: HomePage_Customer.php');
+            }
+            elseif($flagMerchant)
+            {
+                $_SESSION['userName'] = $userName;
+                if($_REQUEST['keepmesignedin'] && $_REQUEST['keepmesignedin'] == 'on')
+                {
+                    setcookie('userLogin', $userName, time() + (30 * 24 * 60 * 60), '/');
+                }
+                else
+                {
+                    setcookie('userLogin', $userName, time() + 900, '/');
+                }
+
+                header('location: HomePage_Merchant.php');
+            }
+            elseif($flagAdmin)
+            {
+                $_SESSION['userName'] = $userName;
+                if($_REQUEST['keep_me_signed_in'] && $_REQUEST['keep_me_signed_in'] == 'on')
+                {
+                    setcookie('userLogin', $userName, time() + 2592000, '/');
+                }
+                else
+                {
+                    setcookie('userLogin', $userName, time() + 900, '/');
+                }
+
+                header('location: HomePage_Admin.php');
             }
             else
             {

@@ -4,7 +4,7 @@
     </head>
 
     <body>
-        <h1 align="center"><b>EUPHORIA</b></h1>
+        <h1 align="center"><b>Extend you Business</b></h1>
         <form align="center" method="POST" action="MerchantRegistrationPage_Check.php" enctype="">
             <fieldset>
                 <legend>Business Account Registration</legend>

@@ -32,7 +32,7 @@
         {
             $filename = 'UserList.txt';
             $file = fopen($filename, 'a') or die('Unable to open file!');
-            $text = "{$userName}|{$email}|{$password}\r\n";
+            $text = "{$userName}|{$email}|{$password}|Customer\r\n";
             fwrite($file, $text) or die('Unable to write to file!');
             fclose($file);
             echo("<h1 align='center'><b>Registration Successful.</b></h1>");

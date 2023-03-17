@@ -14,7 +14,7 @@
         
     <body>
 
-        <h1>Welcome Home! <?php echo($_COOKIE['userLogin'])?></h1>
+        <h1 align="center">Greetings, <?php echo($_COOKIE['userLogin'])?></h1>
         <h4 align="right"><a href='LogoutPage.php'>Logout</a></h4>
         
     </body>
