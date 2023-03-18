@@ -46,7 +46,7 @@
             if($flagCustomer)
             {
                 $_SESSION['userName'] = $userName;
-                if($_REQUEST['keepmesignedin'] && $_REQUEST['keepmesignedin'] == 'on')
+                if($_REQUEST['keep_me_signed_in'] && $_REQUEST['keep_me_signed_in'] == 'on')
                 {
                     setcookie('userLogin', $userName, time() + (30 * 24 * 60 * 60), '/');
                 }
@@ -60,7 +60,7 @@
             elseif($flagMerchant)
             {
                 $_SESSION['userName'] = $userName;
-                if($_REQUEST['keepmesignedin'] && $_REQUEST['keepmesignedin'] == 'on')
+                if($_REQUEST['keep_me_signed_in'] && $_REQUEST['keep_me_signed_in'] == 'on')
                 {
                     setcookie('userLogin', $userName, time() + (30 * 24 * 60 * 60), '/');
                 }

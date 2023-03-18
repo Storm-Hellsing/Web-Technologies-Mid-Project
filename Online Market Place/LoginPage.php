@@ -25,7 +25,7 @@
                 </table>
                 <br/>
                 <input type="submit" name="signin" value="Sign In"/> </br> </br>
-                <input type="checkbox" name="keep_me_signed_in" id="keep_me_signed_in" value="yes"/>
+                <input type="checkbox" name="keep_me_signed_in" id="keep_me_signed_in" value="on"/>
                 <label for="keep_me_signed_in">Keep me signed in.</label> </br> </br>
                 <a href='SignUpPage.php'>Don't have an account? Sign Up Now!</a> <br/> <br/>
                 <a href='ForgotPasswordPage.php'>Forgot Password?</a>
