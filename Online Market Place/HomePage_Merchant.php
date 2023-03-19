@@ -33,6 +33,14 @@
 
             <br/> <br/>
             <br/> <br/>
+
+            <table align="center">
+                <tr>
+                    <th><img src="ProjectEssentials/ab.jpg" width="350px"></th>
+                    <th><img src="ProjectEssentials/ef.jpg" width="350px"></th>
+                    <th><img src="ProjectEssentials/gh.png" width="350px"></th>
+                </tr>
+            </table>
             
             <table align="left">
                 <tr>
