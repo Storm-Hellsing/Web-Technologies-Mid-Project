@@ -22,7 +22,7 @@
             $productID = generateRandomProductCode();
             $filename = 'Database/ProductList.txt';
             $file = fopen($filename, 'a') or die('Unable to open file!');
-            $text = "$userName|{$productID}|$productType|$productName|$price|$quantity|$productDescription\r\n";
+            $text = "$userID|$userName|{$productID}|$productType|$productName|$price|$quantity|$productDescription\r\n";
             fwrite($file, $text) or die('Unable to write to file!');
             fclose($file);
             $file_name = $_FILES['image']['name'];
@@ -30,10 +30,10 @@
             $file_tmp = $_FILES['image']['tmp_name'];
             $file_type = $_FILES['image']['type'];
             
-            $new_file_name = "{$userID}{$file_name}.{$file_type}";
+            $new_file_name = "{$userID},{$file_name}";
             setcookie('productAdd', $productID, time() + 900, '/');
             // Move the uploaded file to a directory on the server
-            move_uploaded_file($file_tmp, "ProductUploads/".$filename);
+            move_uploaded_file($file_tmp, "ProductUploads/".$new_file_name);
             header('location: AddProduct.php?msg=addSuccess');
         }
     }

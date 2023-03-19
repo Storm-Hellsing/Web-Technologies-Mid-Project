@@ -25,22 +25,22 @@
         }
         else
         {
-            $lines = file('UserList.txt');
+            $lines = file('Database/UserList.txt');
 
             // loop through lines to find the user with the specified email
             foreach ($lines as &$line) 
             {
                 $fields = explode('|', $line);
-                if ($fields[1] == $email) 
+                if ($fields[2] == $email) 
                 {
-                    $fields[2] = $newPassword; // update the password field
-                    $line = implode("|", $fields)."\n";
+                    $fields[3] = $newPassword; // update the password field
+                    $line = implode("|", $fields);
                     break;
                 }
             }
 
             // write updated data back to file
-            file_put_contents('UserList.txt', implode("", $lines));
+            file_put_contents('Database/UserList.txt', implode("", $lines));
             $flag = true;
 
             if($flag)

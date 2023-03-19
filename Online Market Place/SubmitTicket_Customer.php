@@ -4,47 +4,55 @@
 
     if(isset($_COOKIE['userID']) && isset($_COOKIE['userLogin']) && isset($_COOKIE['userEmail']))
     {
+        $userName = $_COOKIE['userLogin'];
+        $userEmail = $_COOKIE['userEmail'];
 
 ?>
 
 <html>
     <head>
-        <title>Add Product</title>
+        <title>Cusotmer Care</title>
     </head>
         
     <body>
-        <form align="center" method="POST" action="AddProduct_Check.php" enctype="multipart/form-data">
-            <h1 align="center">Add Product</h1>
+        <form align="center" method="POST" action="SubmitTicket_Customer_Check.php" enctype="multipart/form-data">
+            <h1 align="center">Cusotmer Care</h1>
             <table align="center">
                 <tr align="left">
-                    <th>Product Type:*</th>
+                    <th>Issue Type*</th>
                     <th>
-                        <select name="productType">
-                            <option value="">Select Product Type</option>
-                            <option value="Electronics">Electronics</option>
-                            <option value="Clothing">Clothing</option>
-                            <option value="Gadgets and Accessories">Gadgets and Accessories</option>
+                        <select name="issuetype">
+                            <option value="">Select Issue Type</option>
+                            <option value="Product Not Received">Product Not Received</option>
+                            <option value="Damaged Product">Damaged Product</option>
+                            <option value="Return Request">Return Request</option>
+                            <option value="Others">Others</option>
                         </select>
                     </th>
                 </tr>
 
                 <tr align="left">
-                    <th><label for="produtname">Product Name:*</label></th>
-                    <th><input type="text" name="produtname" id="produtname" value=""/></th>
+                    <th>User Name:* </th>
+                    <th><?php echo $userName; ?></th>
                 </tr>
 
                 <tr align="left">
-                    <th><label for="price">Price (TK):*</label></th>
-                    <th><input type="number" name="price" id="price" value=""/></th>
+                    <th>User Email:*</th>
+                    <th><?php echo $userEmail; ?></th>
                 </tr>
 
                 <tr align="left">
-                    <th><label for="quantity">Quantity:*</label></th>
-                    <th><input type="number" name="quantity" id="quantity" value=""/></th>
+                    <th><label for="orderID">Order ID:*</label></th>
+                    <th><input type="text" name="orderID" id="orderID" value=""/></th>
                 </tr>
 
                 <tr align="left">
-                    <th><label for="description">Product Description:</label></th>
+                    <th><label for="subject">Subject:*</label></th>
+                    <th><input type="text" name="subject" id="subject" value=""/></th>
+                </tr>
+
+                <tr align="left">
+                    <th><label for="description">Tell us in Detail:*</label></th>
                     <th><textarea name="description" id="description" cols="30" rows="5"></textarea></th>
                 </tr>
 
@@ -54,9 +62,8 @@
                 </tr>
             </table>
             <br/> <br/>
-            <button>Clear</button>
             &nbsp
-            <input type="submit" name="add" value="Add"/>
+            <input type="submit" name="submit" value="Submit"/>
             <br/> <br/>
 
             <?php

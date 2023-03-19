@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    if($_COOKIE['userLogin'])
+    if(isset($_COOKIE['userLogin']) && isset($_COOKIE['userID']) && isset($_COOKIE['userEmail']))
     {
         setcookie('viewUser', 'true', time() + 900, '/');
         // Open the file for reading

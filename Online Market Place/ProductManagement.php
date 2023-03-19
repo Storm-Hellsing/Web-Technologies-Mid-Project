@@ -2,13 +2,15 @@
 
     session_start();
 
-    if(isset($_COOKIE['userLogin']))
+    if(isset($_COOKIE['userID']) && isset($_COOKIE['userLogin']) && isset($_COOKIE['userLogin']))
     {
         setcookie('viewProductList', 'true', time() + 900, '/');
         $userName = $_COOKIE['userLogin'];
+        $userID = $_COOKIE['userID'];
         // Open the file for reading
         $file = fopen('Database/ProductList.txt', 'r');
         $count = 1;
+        $productCount = 0;
 
         // Initialize the user data array
         $userData = [];
@@ -57,27 +59,41 @@
                 <?php 
                     
                     foreach($userData as $user): 
-                    if(trim($user[0]) === $userName)
+                    if(trim($user[0]) === $userID)
                     { //print the table excluding admin info
 
                 ?>
                 <tr align="center">
                     <td><?php echo $count ?></td>
-                    <td><?php echo $user[1]; ?></td>
                     <td><?php echo $user[2]; ?></td>
-                    <td><?php echo $user[3]; ?></td>
                     <td><?php echo $user[4]; ?></td>
+                    <td><?php echo $user[3]; ?></td>
                     <td><?php echo $user[5]; ?></td>
                     <td><?php echo $user[6]; ?></td>
-                    <td><img src="ProductUploads/<?php{$productImage}?>" width="100px"></td>
+                    <td><?php echo $user[7]; ?></td>
+                    <td>
+                    <?php 
+                    
+                    $files = glob("ProductUploads/{$userID}*");
+                    if(count($files) > 0) 
+                    {
+                        echo '<img src="'.$files[$productCount].'" width="100px">';
+                    }
+                    else
+                    {
+                        echo("Your Inventory is empty");
+                    } 
+                        
+                    ?>
+                    </td>
                     <td><u>Remove</u></td>
                 </tr>
                 <?php 
                     $count++;
+                    $productCount++;
                     }
                 endforeach; 
                 ?>
-                </tr>
             </table>
         </form>
     </body>

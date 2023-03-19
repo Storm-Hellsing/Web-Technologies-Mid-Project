@@ -53,11 +53,13 @@
                 {
                     setcookie('userLogin', $userName, time() + (30 * 24 * 60 * 60), '/');
                     setcookie('userID', $userID, time() + (30 * 24 * 60 * 60), '/');
+                    setcookie('userEmail', $email, time() + (30 * 24 * 60 * 60), '/');
                 }
                 else
                 {
                     setcookie('userLogin', $userName, time() + 900, '/');
                     setcookie('userID', $userID, time() + 900, '/');
+                    setcookie('userEmail', $email, time() + 900, '/');
                 }
 
                 header('location: HomePage_Customer.php');
@@ -68,11 +70,13 @@
                 {
                     setcookie('userLogin', $userName, time() + (30 * 24 * 60 * 60), '/');
                     setcookie('userID', $userID, time() + (30 * 24 * 60 * 60), '/');
+                    setcookie('userEmail', $email, time() + (30 * 24 * 60 * 60), '/');
                 }
                 else
                 {
                     setcookie('userLogin', $userName, time() + 900, '/');
                     setcookie('userID', $userID, time() + 900, '/');
+                    setcookie('userEmail', $email, time() + 900, '/');
                 }
 
                 header('location: HomePage_Merchant.php');
@@ -83,11 +87,13 @@
                 {
                     setcookie('userLogin', $userName, time() + (30 * 24 * 60 * 60), '/');
                     setcookie('userID', $userID, time() + (30 * 24 * 60 * 60), '/');
+                    setcookie('userEmail', $email, time() + (30 * 24 * 60 * 60), '/');
                 }
                 else
                 {
                     setcookie('userLogin', $userName, time() + 900, '/');
                     setcookie('userID', $userID, time() + 900, '/');
+                    setcookie('userEmail', $email, time() + 900, '/');
                 }
 
                 header('location: HomePage_Admin.php');

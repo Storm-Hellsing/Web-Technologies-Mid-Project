@@ -1,1 +1,2 @@
-Hellsing|EPDT-knVjh7Kf|Electronics|Ardiono|4000|25|Microcontroller
+EM-7018404368360|Hellsing|EPDT-UQPZvfig|Electronics|Arduino Mega 2560|4000|25|Original Microcontroller
+EM-7018404368360|Hellsing|EPDT-2M5RKcvv|Electronics|Piezoelectric Disk|50|100|It captures Sounds.

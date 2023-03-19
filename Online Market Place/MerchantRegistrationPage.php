@@ -52,8 +52,7 @@
                     </tr>
                 </table>
                 <br/>
-                <button >Clear</button>
-                &nbsp 
+                <h5 align="center">Note: By clicking Signup You agree to your <a href="PrivacyPolicy.php" target="_blank">Privacy policies</a> || <a href="TermsConditions.php">Terms and Conditons</a></h5>
                 <input type="submit" name="signup" value="Sign Up"/></br> </br>
                 <a href='LoginPage.php'>Already have an account? Sign In!</a>
                 <br/> <br/>

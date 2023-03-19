@@ -58,30 +58,30 @@
         }
     }
 
-    function validateEmail($email)
+    function validateEmail($email) 
     {
-        $fileToCheckEmail = fopen('UserList.txt', "r");
-
-        while (!feof($fileToCheckEmail))
+        $file = fopen('Database/UserList.txt', 'r');
+      
+        // Loop through each line in the file
+        while (!feof($file)) 
         {
-            $line = fgets($fileToCheckEmail);
-            
-            if (strpos($line, $email) !== false) 
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
+          $line = fgets($file);
+      
+          // Check if the line contains the username
+          if (strpos($line, $email) !== false) 
+          {
+            fclose($file);
+            return 1;
+          }
         }
-
-        fclose($fileToCheckEmail);
+      
+        fclose($file);
+        return 0;
     }
 
     function validateBusinessName($businessName) 
     {
-        $file = fopen('UserList.txt', 'r');
+        $file = fopen('Database/UserList.txt', 'r');
       
         // Loop through each line in the file
         while (!feof($file)) 
