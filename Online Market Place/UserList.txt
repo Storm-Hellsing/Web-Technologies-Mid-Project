@@ -1,4 +1,0 @@
-Abid|sg.abid.13@gmail.com|Im@Abid123|Customer
-Rafi|rafi@gmail.com|Im@Rafi123|Customer
-Arpita|arpita@gmail.com|Im@Arpita123|Admin
-Monir|abfa@gmail.com|Im@Abfa123|Merchant|ABFA Computers|http://www.abfacomputers.com/

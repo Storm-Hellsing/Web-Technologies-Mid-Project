@@ -25,19 +25,12 @@
 
 <html>
     <head>
-        <title>View User</title>
+        <title>Admin's List</title>
     </head>
         
     <body>
         <form align="center" method="POST" action="CheckOut.php" enctype="">
-            <h1 align="center">Users</h1>
-            <table align="center">
-                <tr>
-                    <th width="350px"><a href="ViewUsers_Admin.php?validate=admin" target="_blank">Admin's List</a></th>
-                    <th width="350px"><a href="ViewUsers_Customer.php?validate=customer" target="_blank">Customer's List</a></th>
-                    <th width="350px"><a href="ViewUsers_Merchant.php?validate=merchant" target="_blank">Merchant's List</a></th>
-                </tr> 
-            </table>
+            <h1 align="center">Admin's List</h1>
             <br/> <br/>
             <label for="search">Search User: </label>
             <input type="text" name="search" id="search" value=""/> 
@@ -56,8 +49,10 @@
                 
                
                 <?php 
-                    
-                    foreach($userData as $user): 
+
+                    foreach($userData as $user):
+                        if(trim($user[4]) !== 'Customer' && trim($user[4]) !== 'Merchant')
+                        { 
 
                 ?>
                 <tr align="center">
@@ -72,6 +67,7 @@
                 </tr>
                 <?php 
                     $count++;
+                        }
                 endforeach; 
                 ?>
                 </tr>

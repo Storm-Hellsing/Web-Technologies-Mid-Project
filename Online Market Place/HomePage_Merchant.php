@@ -2,7 +2,7 @@
 
     session_start();
 
-    if(isset($_COOKIE['userLogin']))
+    if(isset($_COOKIE['userLogin']) && isset($_COOKIE['userID']))
     {
 
 ?>
@@ -21,9 +21,9 @@
             <br/> <br/>
             <table align="center" width="1500px">
                 <tr>
-                    <th>My Products</th>
+                    <th><a href="ProductManagement.php">My Products</a></th>
                     <th>My Orders</th>
-                    <th><a href="Cart_Management.php?validate=true">Cart</a></th>
+                    <th><a href="Cart_Management.php">Cart</a></th>
                     <th>Support</th>
                     <th>Settings</th>
                     <th>Profile</th>

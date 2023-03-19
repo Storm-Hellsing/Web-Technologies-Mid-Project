@@ -3,6 +3,7 @@
     session_start();
 
     $userName = "";
+    $userID = "";
     $email = $_REQUEST['email'];
     $password = $_REQUEST['password'];
     $accountTypeCustomer = "Customer";
@@ -20,67 +21,73 @@
         }
         else
         {
-            $file = fopen('UserList.txt', 'r');
+            $file = fopen('Database/UserList.txt', 'r');
             while(!feof($file))
             {
                 $data = fgets($file);
                 $user = explode('|', $data);
 
-                if($email == trim($user[1]) && $password == trim($user[2]) && $accountTypeCustomer == trim($user[3]))
+                if($email == trim($user[2]) && $password == trim($user[3]) && $accountTypeCustomer == trim($user[4]))
                 {
                     $flagCustomer = true;
-                    $userName = trim($user[0]);
+                    $userID = trim($user[0]);
+                    $userName = trim($user[1]);
                 }
-                elseif($email == trim($user[1]) && $password == trim($user[2]) && $accountTypeMerchant == trim($user[3]))
+                elseif($email == trim($user[2]) && $password == trim($user[3]) && $accountTypeMerchant == trim($user[4]))
                 {
                     $flagMerchant = true;
-                    $userName = trim($user[0]);
+                    $userID = trim($user[0]);
+                    $userName = trim($user[1]);
                 }
-                elseif($email == trim($user[1]) && $password == trim($user[2]) && $accountTypeAdmin == trim($user[3]))
+                elseif($email == trim($user[2]) && $password == trim($user[3]) && $accountTypeAdmin == trim($user[4]))
                 {
                     $flagAdmin = true;
-                    $userName = trim($user[0]);
+                    $userID = trim($user[0]);
+                    $userName = trim($user[1]);
                 }
             }
 
             if($flagCustomer)
             {
-                $_SESSION['userName'] = $userName;
                 if($_REQUEST['keep_me_signed_in'] && $_REQUEST['keep_me_signed_in'] == 'on')
                 {
                     setcookie('userLogin', $userName, time() + (30 * 24 * 60 * 60), '/');
+                    setcookie('userID', $userID, time() + (30 * 24 * 60 * 60), '/');
                 }
                 else
                 {
                     setcookie('userLogin', $userName, time() + 900, '/');
+                    setcookie('userID', $userID, time() + 900, '/');
                 }
 
                 header('location: HomePage_Customer.php');
             }
             elseif($flagMerchant)
             {
-                $_SESSION['userName'] = $userName;
                 if($_REQUEST['keep_me_signed_in'] && $_REQUEST['keep_me_signed_in'] == 'on')
                 {
                     setcookie('userLogin', $userName, time() + (30 * 24 * 60 * 60), '/');
+                    setcookie('userID', $userID, time() + (30 * 24 * 60 * 60), '/');
                 }
                 else
                 {
                     setcookie('userLogin', $userName, time() + 900, '/');
+                    setcookie('userID', $userID, time() + 900, '/');
                 }
 
                 header('location: HomePage_Merchant.php');
             }
             elseif($flagAdmin)
             {
-                $_SESSION['userName'] = $userName;
                 if($_REQUEST['keep_me_signed_in'] && $_REQUEST['keep_me_signed_in'] == 'on')
                 {
-                    setcookie('userLogin', $userName, time() + 2592000, '/');
+                    setcookie('userLogin', $userName, time() + (30 * 24 * 60 * 60), '/');
+                    setcookie('userID', $userID, time() + (30 * 24 * 60 * 60), '/');
                 }
                 else
                 {
                     setcookie('userLogin', $userName, time() + 900, '/');
+                    setcookie('userID', $userID, time() + 900, '/');
                 }
 
                 header('location: HomePage_Admin.php');

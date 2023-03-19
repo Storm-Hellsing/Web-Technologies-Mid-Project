@@ -2,7 +2,7 @@
 
     session_start();
 
-    if(isset($_COOKIE['userLogin']))
+    if(isset($_COOKIE['userLogin']) && isset($_COOKIE['userID']))
     {
 
 ?>
@@ -22,7 +22,7 @@
             <table align="center" width="1500px">
                 <tr>
                     <th>My Orders</th>
-                    <th><a href="Cart_Management.php?validate=true">Cart</a></th>
+                    <th><a href="Cart_Management.php">Cart</a></th>
                     <th>Support</th>
                     <th>Settings</th>
                     <th><a href='MerchantRegistrationPage.php' target="_blank">Sell with Euphoria</a></th>

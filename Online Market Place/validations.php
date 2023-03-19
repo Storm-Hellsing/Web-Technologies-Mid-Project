@@ -116,5 +116,59 @@
         
         return $code;
       }
+
+      function generateRandomProductCode() 
+      {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $code = '';
+        
+        // Loop 6 times to generate a 6-digit code
+        for ($i = 0; $i < 8; $i++) 
+        {
+          // Generate a random index to select a character from the $characters string
+          $index = rand(0, strlen($characters) - 1);
+          // Append the selected character to the $code string
+          $code .= $characters[$index];
+        }
+
+        $code = 'EPDT-' . $code;
+        return $code;
+      }
+
+      function generateCustomerCode() 
+      {
+        $characters = '0123456789';
+        $code = '';
+        
+        // Loop 6 times to generate a 6-digit code
+        for ($i = 0; $i < 13; $i++) 
+        {
+          // Generate a random index to select a character from the $characters string
+          $index = rand(0, strlen($characters) - 1);
+          // Append the selected character to the $code string
+          $code .= $characters[$index];
+        }
+
+        $code = 'EC-' . $code;
+        return $code;
+      }
+
+      function generateMerchantCode() 
+      {
+        $characters = '0123456789';
+        $code = '';
+        
+        // Loop 6 times to generate a 6-digit code
+        for ($i = 0; $i < 13; $i++) 
+        {
+          // Generate a random index to select a character from the $characters string
+          $index = rand(0, strlen($characters) - 1);
+          // Append the selected character to the $code string
+          $code .= $characters[$index];
+        }
+
+        $code = 'EM-' . $code;
+        return $code;
+      }
       
 ?>

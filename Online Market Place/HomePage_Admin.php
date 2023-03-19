@@ -2,7 +2,7 @@
 
     session_start();
 
-    if(isset($_COOKIE['userLogin']))
+    if(isset($_COOKIE['userLogin']) && isset($_COOKIE['userID']))
     { 
 
 ?>
@@ -24,7 +24,7 @@
                     <th width="350px">Annoucement</th>
                     <th width="350px">Support Requests</th>
                     <th width="350px">Settings</th>
-                    <th width="350px"><a href="ViewUsers.php?validate=true" target="_blank">Users</a></th>
+                    <th width="350px"><a href="ViewUsers.php" target="_blank">Users</a></th>
                     <th width="350px">Profile</th>
                 </tr>
             </table>

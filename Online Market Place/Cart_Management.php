@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    if(isset($_REQUEST['validate']))
+    if(isset($_COOKIE['userLogin']))
     {
 
     $itemList = [

@@ -42,9 +42,10 @@
         }
         else
         {
+            $merchantID = generateMerchantCode();
             $filename = 'UserList.txt';
             $file = fopen($filename, 'a') or die('Unable to open file!');
-            $text = "{$userName}|{$email}|{$password}|Merchant|{$businessName}|{$businessLink}\r\n";
+            $text = "{$merchantID}|{$userName}|{$email}|{$password}|Merchant|{$businessName}|{$businessLink}\r\n";
             fwrite($file, $text) or die('Unable to write to file!');
             fclose($file);
             echo("<h1 align='center'><b>Registration Successful.</b></h1>");
