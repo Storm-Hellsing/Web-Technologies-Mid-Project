@@ -21,7 +21,7 @@
     </head>
         
     <body>
-        <form align="center" method="POST" action="PaymentOptions.php" enctype="">
+        <form align="center" method="POST" action="" enctype="">
             <h1 align="center">Notofications</h1>
             <br/> <br/>
             <h5 align="center"><u>See All</u></h5>

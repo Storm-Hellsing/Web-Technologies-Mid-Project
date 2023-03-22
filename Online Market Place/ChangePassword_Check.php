@@ -4,20 +4,25 @@
     require 'validations.php';
     $flag = false;
 
-    if(isset($_REQUEST['confirm']) && isset($_COOKIE['carryEmail']))
+    if(isset($_COOKIE['userLogin']) && isset($_COOKIE['userID']) && isset($_COOKIE['userEmail']))
     {
+        $currentPassword = $_REQUEST['currentpassword'];
         $newPassword = $_REQUEST['newpassword'];
         $retypeNewPassword = $_REQUEST['retypenewpassword'];
-        $email = $_COOKIE['carryEmail'];
+        $email = $_COOKIE['userEmail'];
         $validPassword = validatePassword($newPassword);
 
-        if($newPassword == "")
+        if($newPassword == "" && $currentPassword == "")
         {
             header('location: ResetPassword.php?msg=nullNewPassword');
         }
         elseif($validPassword == 0)
         {
             header('location: ResetPassword.php?msg=invalidPassword');
+        }
+        elseif($newPassword != $retypeNewPassword)
+        {
+            header('location: ResetPassword.php?msg=newPassMismatch');
         }
         elseif($newPassword != $retypeNewPassword)
         {
@@ -45,12 +50,6 @@
 
             if($flag)
             {
-                session_destroy();
-                setcookie('resetpassword', $_SESSION['email'], time() - 1, '/');
-                setcookie('carryEmail', $_COOKIE['resetpassword'], time() - 1, '/');
-                setcookie('userLogin', $userName, time() - 1, '/');
-                setcookie('userID', $userID, time() - 1, '/');
-                setcookie('userEmail', $email, time() - 1, '/');
                 header('location: LoginPage.php?msg=passChangeSuccess');
             }
             else

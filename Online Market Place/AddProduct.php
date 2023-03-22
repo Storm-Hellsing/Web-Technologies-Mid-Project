@@ -54,10 +54,10 @@
                 </tr>
             </table>
             <br/> <br/>
-            <button>Clear</button>
-            &nbsp
             <input type="submit" name="add" value="Add"/>
             <br/> <br/>
+
+            <a href="ProductManagement.php">View Inventory</a>
 
             <?php
 

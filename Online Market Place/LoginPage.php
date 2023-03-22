@@ -41,6 +41,10 @@
                         {
                             echo "Username or Password Might be wrong.";
                         }
+                        elseif($_REQUEST['msg'] == 'nullInput')
+                        {
+                            echo("Please fillup the above credentials.");
+                        }
                         elseif($_REQUEST['msg'] == 'passChangeSuccess')
                         {
                             echo("You password has been changed successfully.");

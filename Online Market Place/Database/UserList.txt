@@ -1,4 +1,5 @@
 EA-0000000000000|Arpita|arpita@gmail.com|Im@Arpita123|Admin
 EC-7777015436539|S.G. Abid|sg.abid.13@gmail.com|Im@Abid123|Customer
 EM-7018404368360|Hellsing|storm.hellsing@hotmail.com|Im@Mech123|Merchant|MechTech|https://store.roboticsbd.com/EC-6866323666607
-EC-3908776499925|Rafi|rafiprx7@gmail.com|Im@Rafi123|Customer
+EC-3908776499925|Rafi|rafiprx7@gmail.com|Im@Rafi786|Customer|
+EA-1692830189547|Syed Golam Abid|sg.abid@hotmail.com|Im@Awsm123|Admin

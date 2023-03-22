@@ -15,7 +15,7 @@
     <body>
         <form align="center" method="POST" action="AddtoCart_Check.php" enctype="multipart/form-data">
             <h1 align="center">Product View</h1>
-            <table align="center" border=1>
+            <table align="center">
                 <tr>
                     <th><img src="ProductUploads/EM-7018404368360,Arduino Mega 2560.jpg" width = "350px"></th>
                 </tr>

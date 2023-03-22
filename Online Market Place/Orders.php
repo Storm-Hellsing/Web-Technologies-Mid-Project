@@ -25,7 +25,7 @@
         
     <body>
         <form align="center" method="POST" action="PaymentOptions.php" enctype="">
-            <h1 align="center">My Cart</h1>
+            <h1 align="center">My Orders</h1>
             <label for="search">Search Items: </label>
             <input type="text" name="search" id="search" value=""/> 
             <br/> <br/>

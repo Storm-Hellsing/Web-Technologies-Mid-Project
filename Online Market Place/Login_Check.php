@@ -17,7 +17,7 @@
     {
         if($email == "" || $password == "")
         {
-            echo("Please fillup the above credentials.");
+            header('location: LoginPage.php?msg=nullInput');
         }
         else
         {

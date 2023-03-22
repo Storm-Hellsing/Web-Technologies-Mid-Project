@@ -23,8 +23,9 @@
                 <tr>
                     <th width="350px">Annoucement</th>
                     <th width="350px">Support Requests</th>
-                    <th><a href="Settings.php">Settings</a></th>
+                    <th width="350px"><a href="Settings.php">Settings</a></th>
                     <th width="350px"><a href="ViewUsers.php" target="_blank">Users</a></th>
+                    <th width="350px"><a href="SignUp_Admin.php">Assign New Admin</a></th>
                     <th width="350px"><a href="UserProfileInfo.php">Profile</a></th>
                 </tr>
             </table>

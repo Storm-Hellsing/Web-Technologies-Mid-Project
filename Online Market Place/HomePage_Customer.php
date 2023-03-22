@@ -40,6 +40,12 @@
                     <th><img src="ProjectEssentials/ef.jpg" width="350px"></th>
                     <th><img src="ProjectEssentials/gh.png" width="350px"></th>
                 </tr>
+
+                <tr>
+                    <th><img src="ProjectEssentials/ij.jpg" width="350px"></th>
+                    <th><img src="ProjectEssentials/kl.jpg" width="350px"></th>
+                    <th><img src="ProjectEssentials/mn.jpg" width="350px"></th>
+                </tr>
             </table>
             
             <table align="left">
